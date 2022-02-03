@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     
     private bool Raycast(Vector2 dir)
     {
-        var hit = Physics2D.Raycast(transform.position, dir, 0.5f,enemyLayerMask);
+        var hit = Physics2D.Raycast(transform.position, dir, 0.7f,enemyLayerMask);
         print(hit.collider == null);
         return hit.collider == null;
     }
