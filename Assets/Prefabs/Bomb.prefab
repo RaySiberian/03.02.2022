@@ -98,5 +98,5 @@ MonoBehaviour:
   sprite: {fileID: 2799869045351629070}
   bombLayerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 448
   FxExplosion: {fileID: 100006, guid: e076683e0305e35498b8e8834978c0fa, type: 3}
