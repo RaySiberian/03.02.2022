@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         var pos = (Vector2) transform.position + direction;
-        transform.DOMove(pos, 1f,true);
+        transform.DOMove(pos, 1f);
     }
     
     private bool Raycast(Vector2 dir)

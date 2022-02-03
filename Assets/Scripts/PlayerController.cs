@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
     [SerializeField] private Bomb bombPrefab;
+    [SerializeField] private GameObject sprite;
     private bool isMoving = false;
     
     private void Update()
@@ -23,10 +24,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             MovePlayerTo(Vector2.left);
+            sprite.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             MovePlayerTo(Vector2.right);
+            sprite.transform.DORotate(new Vector3(0, 180, 0), 0.2f);
+            //sprite.transform.rotation = Quaternion.Euler(0,180,0);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
