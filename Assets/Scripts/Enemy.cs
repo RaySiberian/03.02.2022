@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Vector2 direction = Vector2.down;
+    [SerializeField] private Vector2 direction;
     [SerializeField] private LayerMask enemyLayerMask;
     private void Start()
     {
-        direction = Vector2.down;
         StartCoroutine(EnemyPatrol());
     }
 
@@ -20,16 +19,20 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (Raycast(direction))
             {
-                var pos = (Vector2) transform.position + direction;
-                transform.DOMove(pos, 0.5f);
+                Move();
             }
             else
             {
                 direction *= (-1);
-                var pos = (Vector2) transform.position + direction;
-                transform.DOMove(pos, 0.5f);
+                Move();
             }
         }
+    }
+
+    private void Move()
+    {
+        var pos = (Vector2) transform.position + direction;
+        transform.DOMove(pos, 1f,true);
     }
     
     private bool Raycast(Vector2 dir)
